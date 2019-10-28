@@ -4,11 +4,13 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Table(name = "dishes")
@@ -20,56 +22,23 @@ public class Dish {
     @GeneratedValue
     private long id;
 
+    @Column(name = "name_of_dish")
     @NotBlank
     private String nameOfDish;
 
+    @Column(name = "ingredients")
     @NotBlank
     private String ingredients;
 
+    @Column(name = "step")
     @NotBlank
     private String step;
 
+    @Column(name = "steps")
     @NotBlank
     private List steps;
 
+    @Column(name = "description")
+    private Optional<String> description;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getNameOfDish() {
-        return nameOfDish;
-    }
-
-    public void setNameOfDish(String nameOfDish) {
-        this.nameOfDish = nameOfDish;
-    }
-
-    public String getIngredients() {
-        return ingredients;
-    }
-
-    public void setIngredients(String ingredients) {
-        this.ingredients = ingredients;
-    }
-
-    public String getStep() {
-        return step;
-    }
-
-    public void setStep(String step) {
-        this.step = step;
-    }
-
-    public List getSteps() {
-        return steps;
-    }
-
-    public void setSteps(List steps) {
-        this.steps = steps;
-    }
 }
